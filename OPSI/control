@@ -1,0 +1,30 @@
+[Package]
+version: 1
+depends: 
+incremental: False
+
+[Product]
+type: localboot
+id: dfn_ccleaner
+name: CCleaner
+description: Kostenloses Programm zur Optimierung und Säuberung des Computers.
+advice: 
+version: 5.11.5408
+priority: 0
+licenseRequired: False
+productClasses: 
+setupScript: setup.opsiscript
+uninstallScript: uninstall.opsiscript
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript: 
+
+[Changelog]
+ccleaner (5.07-1) stable; urgency=low
+
+	* initial: created by opsi-setup-detector
+
+-- opsisetupdetector.exe <info@uib.de>  03.07.2015 11:21:47
+
