@@ -9,7 +9,7 @@ id: dfn_ccleaner
 name: CCleaner
 description: Kostenloses Programm zur Optimierung und Säuberung des Computers.
 advice: 
-version: 5.11.5408
+version: 5.12.5431
 priority: 0
 licenseRequired: False
 productClasses: 

@@ -60,7 +60,7 @@ Set $SetupType$       = "nsis"
 
 ; $ProductId$ is the name of the product in opsi, only lower letters, no umlauts, no white spaces, use '-' as a seperator
 Set $ProductId$       = "ccleaner"
-Set $Setupfile$       = "ccsetup511_slim.exe"
+Set $Setupfile$       = "ccsetup512.exe"
 ; the path where we find the product after the installation
 Set $InstallDir$      = "%ProgramFiles32Dir%\CCleaner"
 Set $LicenseRequired$ = "false"
