@@ -7,7 +7,6 @@
 requiredWinstVersion >= "4.11.3.3"
 
 DefVar $SetupType$
-DefVar $MsiId$
 DefVar $LogDir$
 DefVar $ExitCode$
 DefVar $ErrorMsg$
@@ -15,20 +14,20 @@ DefVar $ProductId$
 DefVar $InstallDir$
 DefVar $LicenseRequired$
 DefVar $LicensePool$
+DefVar $DesktopIconName$
+
+include_append "%ScriptPath%\dfn_lib.opsiscript"
 
 Set $LogDir$ = "%SystemDrive%\tmp"
-
-; ----------------------------------------------------------------; ----------------------------------------------------------------
-Set $SetupType$ = "nsis"
-; ----------------------------------------------------------------; ----------------------------------------------------------------
 
 ; ----------------------------------------------------------------; ----------------------------------------------------------------
 ; - Please check the following values                             -
 ; ----------------------------------------------------------------
 Set $ProductId$       = "ccleaner"
-Set $InstallDir$      = "%ProgramFiles32Dir%\CCleaner"
+Set $InstallDir$    = "%ProgramFiles64Dir%\CCleaner"
 Set $LicenseRequired$ = "false"
 Set $LicensePool$     = "p_" + $ProductId$
+Set $DesktopIconName$ = "CCleaner"
 ; ----------------------------------------------------------------
 
 
@@ -47,17 +46,5 @@ if $LicenseRequired$ = "true"
    Sub_free_license
 endif
 
-[Sub_free_license]
-comment "License management is enabled and will be used"
-
-comment "Trying to free license used for the product"
-DefVar $result$
-Set $result$ = FreeLicense($LicensePool$)
-; If there is an assignment of a license pool to the product, it is possible to use
-; Set $result$ = FreeLicense("", $ProductId$)
-;
-; If there is an assignment of a license pool to a windows software id, it is possible to use
-; DefVar $WindowsSoftwareId$
-; $WindowsSoftwareId$ = "..."
-; set $result$ = FreeLicense("", "", $WindowsSoftwareId$)
+LinkFolder_delete
 

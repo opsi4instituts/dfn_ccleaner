@@ -7,9 +7,9 @@ incremental: False
 type: localboot
 id: dfn_ccleaner
 name: CCleaner
-description: Kostenloses Programm zur Optimierung und Säuberung des Computers.
+description: Kostenloses Programm zur Optimierung und Saeuberung des Computers.
 advice: 
-version: 5.12.5431
+version: 5.15
 priority: 0
 licenseRequired: False
 productClasses: 
@@ -20,6 +20,12 @@ alwaysScript:
 onceScript: 
 customScript: 
 userLoginScript: 
+
+[ProductProperty]
+type: bool
+name: desktopicon
+description: generate or delete desktop icon
+default: True
 
 [Changelog]
 ccleaner (5.07-1) stable; urgency=low
