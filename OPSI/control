@@ -1,6 +1,6 @@
 [Package]
 version: 1
-depends: 
+depends:
 incremental: False
 
 [Product]
@@ -9,10 +9,10 @@ id: dfn_ccleaner
 name: CCleaner
 description: Kostenloses Programm zur Optimierung und Saeuberung des Computers.
 advice: 
-version: 5.15
+version: 5.16
 priority: 0
 licenseRequired: False
-productClasses: 
+productClasses:
 setupScript: setup.opsiscript
 uninstallScript: uninstall.opsiscript
 updateScript: 
@@ -28,9 +28,9 @@ description: generate or delete desktop icon
 default: True
 
 [Changelog]
+
 ccleaner (5.07-1) stable; urgency=low
 
 	* initial: created by opsi-setup-detector
 
 -- opsisetupdetector.exe <info@uib.de>  03.07.2015 11:21:47
-
