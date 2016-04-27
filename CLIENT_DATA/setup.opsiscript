@@ -36,7 +36,9 @@ DefVar $PrettyName$
 DefVar $PackageVersion$
 DefVar $Version$
 DefVar $TaskName$
+DefVar $CustomPostInstall$
 DefStringList $TaskNameList$
+
 Set $LogDir$ = "%SystemDrive%\tmp"
 
 include_append "%ScriptPath%\check_nsis_exitcode.opsiscript"
@@ -102,6 +104,15 @@ else
    else
      LinkFolder_delete
    endif 
+
+   comment "include custom post install file"
+   set $CustomPostInstall$ = getProductProperty("custom-post-install","none")
+   if not ($CustomPostInstall$ = "none")
+	   if FileExists("%ScriptPath%\custom\" + $CustomPostInstall$)
+		   include_insert "%ScriptPath%\custom\" + $CustomPostInstall$
+	   endif
+   endif
+
 endif
 
 ; ----------------------------------------------------------------
