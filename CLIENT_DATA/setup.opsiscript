@@ -56,7 +56,7 @@ Set $MinimumSpace$    = "38 MB"
 Set $PrettyName$			= "CCleaner"
 Set $PackageVersion$	= takeString(1, splitString ("%installingProdVersion%","-"))
 Set $Version$	        = strPart("%installingProdVersion%", "1", calculate(strPos("%installingProdVersion%","-") + "-" + "1" ))
-Set $Setupfile$       = "cc_setup" + strPart($Version$, "1", "1") + strPart($Version$, "3", "2") + ".exe"
+Set $Setupfile$       = "ccsetup" + strPart($Version$, "1", "1") + strPart($Version$, "3", "2") + ".exe"
 
 Set $DesktopIconName$      = "CCleaner"
 Set $InstallDir$           = "%ProgramFiles64Dir%\CCleaner"
