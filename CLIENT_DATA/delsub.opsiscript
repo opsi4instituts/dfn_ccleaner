@@ -8,25 +8,35 @@ SetLogLevel = 6
 include_append "%ScriptPath%\check_nsis_exitcode.opsiscript"
 
 DefVar $UninstallProgram$
+DefVar $UninstallDir$
+DefStringList $PossibleInstallLocations$
+
+Set $PossibleInstallLocations$ = addtolist($PossibleInstallLocations$, $InstallDir$)
+Set $PossibleInstallLocations$ = addtolist($PossibleInstallLocations$, "%ProgramFiles32Dir%\CCleaner")
+Set $PossibleInstallLocations$ = addtolist($PossibleInstallLocations$, "%ProgramFiles64Dir%\CCleaner")
 
 Message "Uninstalling " + $ProductId$ + " ..."
 
-Set $UninstallProgram$ = $InstallDir$ + "\uninst.exe"
-if (not($InstallDir$ = '')) and FileExists($UninstallProgram$)
+for %location% in $PossibleInstallLocations$ do Sub_uninstall_loop
+
+;-----------------------------------------------------
+[Sub_uninstall_loop]
+Set $UninstallDir$ = "%location%"
+Set $UninstallProgram$ = $UninstallDir$ + "\uninst.exe"
+if (not($UninstallDir$ = '')) and FileExists($UninstallProgram$)
   comment "Uninstall program found, starting uninstall"
   Winbatch_uninstall_nsis /WaitforProcessending "Au_.exe" /Timeoutseconds 10
   sub_check_exitcode
 endif
 
-if (not($InstallDir$ = '')) and (not($InstallDir$ = "not used"))
+if (not($UninstallDir$ = '')) and (not($UninstallDir$ = "not used"))
    Files_uninstall
 endif
-
 ;-----------------------------------------------------
 [Winbatch_uninstall_nsis]
 "$UninstallProgram$" /S
 ;-----------------------------------------------------
 
 [Files_uninstall]
-del -sf "$InstallDir$\"
+del -sf "$UninstallDir$\"
 ;-----------------------------------------------------

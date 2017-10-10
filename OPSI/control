@@ -1,5 +1,5 @@
 [Package]
-version: 1
+version: 2
 depends: 
 incremental: False
 
@@ -46,6 +46,12 @@ values: ["none", "post-deinstall.opsiinc"]
 default: ["none"]
 
 [Changelog]
+dfn_ccleaner (5.35-2) stable; urgency=low
+
+Bug bei De/Installation gefixt, Skript hat CCleaner vormals ins 64-bit Verzeichnis installiert. Jetzt wieder in Program Files(x86), entfernt im delsub aber auch die Version aus Program Files.
+
+ -- Eric Esser <eric.esser@wzb.eu>  Tue, 10 Oct 2017 15:50:08 +0000
+
 dfn_ccleaner (5.35-1) stable; urgency=low
 
 Exe getauscht, Update auf 5.35.

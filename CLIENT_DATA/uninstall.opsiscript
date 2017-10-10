@@ -25,7 +25,7 @@ Set $LogDir$ = "%SystemDrive%\tmp"
 ; - Please check the following values                             -
 ; ----------------------------------------------------------------
 Set $ProductId$       = "ccleaner"
-Set $InstallDir$      = "%ProgramFiles64Dir%\CCleaner"
+Set $InstallDir$      = "%ProgramFiles32Dir%\CCleaner"
 Set $LicenseRequired$ = "false"
 Set $LicensePool$     = "p_" + $ProductId$
 Set $DesktopIconName$ = "CCleaner"

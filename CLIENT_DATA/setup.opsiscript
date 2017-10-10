@@ -37,6 +37,7 @@ DefVar $PackageVersion$
 DefVar $Version$
 DefVar $TaskName$
 DefVar $CustomPostInstall$
+DefVar $INST_SystemType$
 DefStringList $TaskNameList$
 
 Set $LogDir$ = "%SystemDrive%\tmp"
@@ -45,27 +46,26 @@ include_append "%ScriptPath%\check_nsis_exitcode.opsiscript"
 include_append "%ScriptPath%\dfn_lib.opsiscript"
 
 ; ----------------------------------------------------------------
-
-; $ProductId$ is the name of the product in opsi, only lower letters, no umlauts, no white spaces, use '-' as a seperator
-Set $ProductId$       = "ccleaner"
-
-; the path where we find the product after the installation
-Set $LicenseRequired$ = "false"
-Set $LicensePool$     = "p_" + $ProductId$
-Set $MinimumSpace$    = "38 MB"
-Set $PrettyName$			= "CCleaner"
-Set $PackageVersion$	= takeString(1, splitString ("%installingProdVersion%","-"))
-Set $Version$	        = strPart("%installingProdVersion%", "1", calculate(strPos("%installingProdVersion%","-") + "-" + "1" ))
-Set $Setupfile$       = "ccsetup" + strPart($Version$, "1", "1") + strPart($Version$, "3", "2") + ".exe"
-
+Set $ProductId$            = "ccleaner"
+Set $LicenseRequired$      = "false"
+Set $LicensePool$          = "p_" + $ProductId$
+Set $MinimumSpace$         = "38 MB"
+Set $PrettyName$			     = "CCleaner"
+Set $PackageVersion$	     = takeString(1, splitString ("%installingProdVersion%","-"))
+Set $Version$	             = strPart("%installingProdVersion%", "1", calculate(strPos("%installingProdVersion%","-") + "-" + "1" ))
+Set $Setupfile$            = "ccsetup" + strPart($Version$, "1", "1") + strPart($Version$, "3", "2") + ".exe"
 Set $DesktopIconName$      = "CCleaner"
-Set $InstallDir$           = "%ProgramFiles64Dir%\CCleaner"
-Set $PathToExe$            = $InstallDir$ + "\CCleaner64.exe"
+Set $InstallDir$           = "%ProgramFiles32Dir%\CCleaner"
 Set $Property_DesktopIcon$ = GetProductProperty("desktopicon","True")
-
+Set $INST_SystemType$      = GetSystemType
 Set $TaskNameList$				 = addtolist($TaskNameList$	, "CCleaner.exe")
 Set $TaskNameList$				 = addtolist($TaskNameList$	, "CCleaner64.exe")
 
+if ($INST_SystemType$ = "64 Bit System")
+  Set $PathToExe$          = $InstallDir$ + "\CCleaner64.exe"
+else 
+  Set $PathToExe$          = $InstallDir$ + "\CCleaner.exe"
+endif
 ; ----------------------------------------------------------------
 
 if not(HasMinimumSpace ("%SystemDrive%", $MinimumSpace$))
