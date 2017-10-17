@@ -90,7 +90,7 @@ else
       Sub_get_licensekey
    endif
 
-  Set $NsisInstallBatch$ = "%ScriptPath%\"+ $Setupfile$ +" /S" + ' /D="' + $InstallDir$ + '"'
+  Set $NsisInstallBatch$ = "%ScriptPath%\" + $Setupfile$ + " /S /D=" + $InstallDir$
 
    comment "Start setup program"
    ChangeDirectory "%SCRIPTPATH%"
