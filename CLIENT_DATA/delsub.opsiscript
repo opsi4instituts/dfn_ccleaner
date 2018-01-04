@@ -29,9 +29,9 @@ if (not($UninstallDir$ = '')) and FileExists($UninstallProgram$)
   sub_check_exitcode
 endif
 
-if (not($UninstallDir$ = '')) and (not($UninstallDir$ = "not used"))
-   Files_uninstall
-endif
+;if (not($UninstallDir$ = '')) and (not($UninstallDir$ = "not used"))
+;   Files_uninstall
+;endif
 ;-----------------------------------------------------
 [Winbatch_uninstall_nsis]
 "$UninstallProgram$" /S
