@@ -9,7 +9,7 @@ id: dfn_ccleaner
 name: CCleaner
 description: Kostenloses Programm zur Optimierung und Saeuberung des Computers.
 advice: 
-version: 5.38
+version: 5.42
 priority: 0
 licenseRequired: False
 productClasses: 
@@ -46,6 +46,18 @@ values: ["none", "post-deinstall.opsiinc"]
 default: ["none"]
 
 [Changelog]
+dfn_ccleaner (5.42-1) stable; urgency=low
+
+Exe getauscht, Update auf 5.42.
+
+ -- Eric Esser <eric.esser@wzb.eu>  Tue, 24 Apr 2018 15:56:02 +0000
+
+dfn_ccleaner (5.41-1) stable; urgency=low
+
+Exe getauscht, Update auf 5.41.
+
+ -- Eric Esser <eric.esser@wzb.eu>  Tue, 24 Apr 2018 15:55:33 +0000
+
 dfn_ccleaner (5.38-1) stable; urgency=low
 
 Exe getauscht, Update auf 5.38.

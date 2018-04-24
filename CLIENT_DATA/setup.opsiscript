@@ -60,12 +60,8 @@ Set $Property_DesktopIcon$ = GetProductProperty("desktopicon","True")
 Set $INST_SystemType$      = GetSystemType
 Set $TaskNameList$				 = addtolist($TaskNameList$	, "CCleaner.exe")
 Set $TaskNameList$				 = addtolist($TaskNameList$	, "CCleaner64.exe")
+Set $PathToExe$          = $InstallDir$ + "\CCleaner.exe"
 
-if ($INST_SystemType$ = "64 Bit System")
-  Set $PathToExe$          = $InstallDir$ + "\CCleaner64.exe"
-else 
-  Set $PathToExe$          = $InstallDir$ + "\CCleaner.exe"
-endif
 ; ----------------------------------------------------------------
 
 if not(HasMinimumSpace ("%SystemDrive%", $MinimumSpace$))
