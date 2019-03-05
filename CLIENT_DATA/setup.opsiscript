@@ -40,7 +40,7 @@ DefVar $CustomPostInstall$
 DefVar $INST_SystemType$
 DefStringList $TaskNameList$
 
-Set $LogDir$ = "%SystemDrive%\tmp"
+Set $LogDir$ = "%opsiLogDir%"
 
 include_append "%ScriptPath%\check_nsis_exitcode.opsiscript"
 include_append "%ScriptPath%\dfn_lib.opsiscript"

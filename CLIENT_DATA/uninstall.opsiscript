@@ -19,7 +19,7 @@ DefVar $CustomPostDeinstall$
 
 include_append "%ScriptPath%\dfn_lib.opsiscript"
 
-Set $LogDir$ = "%SystemDrive%\tmp"
+Set $LogDir$ = "%opsiLogDir%"
 
 ; ----------------------------------------------------------------; ----------------------------------------------------------------
 ; - Please check the following values                             -
